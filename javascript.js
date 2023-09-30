@@ -1,5 +1,9 @@
 let playerVitories = 0;
 let computerVitories = 0;
+
+let botao = document.getElementById("botao");
+let texto = document.getElementById("texto");
+
 function getComputerChoice(){
     const variavel1 = "rock";
     const variavel2 = "paper";
@@ -20,35 +24,36 @@ function getComputerChoice(){
 function playRound(){
     const playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
     const computerSelection = getComputerChoice();
+    console.log(`computer chose : ${computerSelection}`)
     if (playerSelection == computerSelection){
-        return "It's a draw";
+        texto.innerHTML = "It's a draw";
     }
     else if(playerSelection == "rock" && computerSelection == "scissors"){
         playerVitories++;
-        return "You win, rock BEATS scissors! :)";
+        texto.innerHTML = "You win, rock BEATS scissors! :)";
     }
     else if(playerSelection == "paper" && computerSelection == "rock"){
         playerVitories++;
-        return "You win, paper WRAPS rock! :)";
+        texto.innerHTML = "You win, paper WRAPS rock! :)";
     }
     else if(playerSelection == "scissors" && computerSelection == "paper"){
         playerVitories++;
-        return "You win, scissors CUT paper! :)";
+        texto.innerHTML = "You win, scissors CUT paper! :)";
     }
     else if (computerSelection == "rock" && playerSelection == "scissors"){
         computerVitories++;
-        return "You lose, rock BEATS scissors! :(";
+        texto.innerHTML = "You lose, rock BEATS scissors! :(";
     }
     else if (computerSelection == "paper" && playerSelection == "rock"){
         computerVitories++;
-        return "You lose, paper WRAPS rock! :(";
+        texto.innerHTML = "You lose, paper WRAPS rock! :(";
     }
     else if (computerSelection == "scissors" && playerSelection == "paper"){
         computerVitories++;
-        return "You lose, scissors CUT paper! :(";
+        texto.innerHTML = "You lose, scissors CUT paper! :(";
     }
     else{
-        return "Something went wrong";
+        texto.innerHTML = "Something went wrong";
     }
     /*else if (
         (playerSelection == "rock" && computerSelection == "scissors") ||
@@ -62,6 +67,4 @@ function playRound(){
         return "You lose! :( ";
     }*/
 }
-
-
-
+botao.addEventListener("click", playRound);
