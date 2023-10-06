@@ -1,8 +1,10 @@
 let playerVitories = 0;
 let computerVitories = 0;
 
-let botao = document.getElementById("botao");
-let texto = document.getElementById("texto");
+const botaoRock = document.querySelector('#rock');
+const botaoPaper = document.querySelector('#paper');
+const botaoScissors = document.querySelector('#scissors');
+const texto = document.querySelector('#texto');
 
 function getComputerChoice(){
     const variavel1 = "rock";
@@ -21,8 +23,8 @@ function getComputerChoice(){
     } 
     return selectedVariable;
 }
-function playRound(){
-    const playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
+function playRound(x){
+    const playerSelection = x.value;
     const computerSelection = getComputerChoice();
     console.log(`computer chose : ${computerSelection}`)
     if (playerSelection == computerSelection){
@@ -55,16 +57,15 @@ function playRound(){
     else{
         texto.innerHTML = "Something went wrong";
     }
-    /*else if (
-        (playerSelection == "rock" && computerSelection == "scissors") ||
-        (playerSelection == "paper" && computerSelection == "rock") ||
-        (playerSelection == "scissors" && computerSelection == "paper")){
-            playerVitories++;
-            return "You win! :)";
-        }
-    else{
-        computerVitories++;
-        return "You lose! :( ";
-    }*/
 }
-botao.addEventListener("click", playRound);
+botaoRock.addEventListener("click", ()=>{
+    playRound(botaoRock);
+});
+
+botaoPaper.addEventListener("click", ()=>{
+    playRound(botaoPaper);
+});
+
+botaoScissors.addEventListener("click", ()=>{
+    playRound(botaoScissors);
+});
