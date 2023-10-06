@@ -5,7 +5,8 @@ div{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 25px;
+    height: 100px;
 }
 button{
     padding: 5px;
@@ -13,4 +14,33 @@ button{
     height: 80px;
     border-radius: 10px;
     font-size: 18pt;
+    border: solid 3px black;
+}
+button:hover{
+    width: 140px;
+    height: 90px;
+    border: solid 6px green;
+}
+.espacoBotao{
+    width: 140px;
+    height: 90px;
+}
+
+#texto{
+    font-size: 18pt;
+    font-weight: bold;
+    font-style: italic;
+}
+#rock, #paper, #scissors{
+    background-color: aliceblue;
+    background-size: cover;
+}
+#rock{
+    background-image: url("Rock.jpg") ;  
+}
+#paper{
+    background-image: url("paper.jpg") ;
+}
+#scissors{
+    background-image: url("scissors.jpeg");
 }
