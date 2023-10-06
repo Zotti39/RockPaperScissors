@@ -6,6 +6,9 @@ const botaoPaper = document.querySelector('#paper');
 const botaoScissors = document.querySelector('#scissors');
 const texto = document.querySelector('#texto');
 
+const computerScore = document.querySelector('#computerScore');
+const playerScore = document.querySelector('#playerScore');
+
 function getComputerChoice(){
     const variavel1 = "rock";
     const variavel2 = "paper";
@@ -28,35 +31,37 @@ function playRound(x){
     const computerSelection = getComputerChoice();
     console.log(`computer chose : ${computerSelection}`)
     if (playerSelection == computerSelection){
-        texto.innerHTML = "It's a draw";
+        texto.textContent = "It's a draw";
     }
     else if(playerSelection == "rock" && computerSelection == "scissors"){
         playerVitories++;
-        texto.innerHTML = "You win, rock BEATS scissors! :)";
+        texto.textContent = "You win, rock BEATS scissors! :)";
     }
     else if(playerSelection == "paper" && computerSelection == "rock"){
         playerVitories++;
-        texto.innerHTML = "You win, paper WRAPS rock! :)";
+        texto.textContent = "You win, paper WRAPS rock! :)";
     }
     else if(playerSelection == "scissors" && computerSelection == "paper"){
         playerVitories++;
-        texto.innerHTML = "You win, scissors CUT paper! :)";
+        texto.textContent = "You win, scissors CUT paper! :)";
     }
     else if (computerSelection == "rock" && playerSelection == "scissors"){
         computerVitories++;
-        texto.innerHTML = "You lose, rock BEATS scissors! :(";
+        texto.textContent = "You lose, rock BEATS scissors! :(";
     }
     else if (computerSelection == "paper" && playerSelection == "rock"){
         computerVitories++;
-        texto.innerHTML = "You lose, paper WRAPS rock! :(";
+        texto.textContent = "You lose, paper WRAPS rock! :(";
     }
     else if (computerSelection == "scissors" && playerSelection == "paper"){
         computerVitories++;
-        texto.innerHTML = "You lose, scissors CUT paper! :(";
+        texto.textContent = "You lose, scissors CUT paper! :(";
     }
     else{
-        texto.innerHTML = "Something went wrong";
+        texto.textContent = "Something went wrong";
     }
+    playerScore.textContent = 'Player: ' + playerVitories;
+    computerScore.textContent = 'Computer: ' + computerVitories;
 }
 botaoRock.addEventListener("click", ()=>{
     playRound(botaoRock);

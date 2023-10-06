@@ -7,6 +7,7 @@ div{
     justify-content: center;
     gap: 25px;
     height: 100px;
+    width: auto;
 }
 button{
     padding: 5px;
@@ -26,11 +27,35 @@ button:hover{
     height: 90px;
 }
 
-#texto{
+/* Results */
+.resultado{
+    display: flex;
+    padding: 50px;
+    gap: 0px;
+}
+.resultado > div:nth-child(1){
+    width: 15%;
+}
+.resultado > div:nth-child(2){
+    width: 25%;
+}
+.score{
+    gap: 0px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.score > div{
+    flex: 1;
     font-size: 18pt;
+}
+#texto{
+    font-size: 24pt;
     font-weight: bold;
     font-style: italic;
 }
+
+/* Buttons */
 #rock, #paper, #scissors{
     background-color: aliceblue;
     background-size: cover;
