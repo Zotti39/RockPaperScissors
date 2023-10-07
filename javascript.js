@@ -27,41 +27,49 @@ function getComputerChoice(){
     return selectedVariable;
 }
 function playRound(x){
-    const playerSelection = x.value;
-    const computerSelection = getComputerChoice();
-    console.log(`computer chose : ${computerSelection}`)
-    if (playerSelection == computerSelection){
-        texto.textContent = "It's a draw";
+    if(computerVitories >= 5){
+        texto.textContent = "Computer Wins!";
     }
-    else if(playerSelection == "rock" && computerSelection == "scissors"){
-        playerVitories++;
-        texto.textContent = "You win, rock BEATS scissors! :)";
-    }
-    else if(playerSelection == "paper" && computerSelection == "rock"){
-        playerVitories++;
-        texto.textContent = "You win, paper WRAPS rock! :)";
-    }
-    else if(playerSelection == "scissors" && computerSelection == "paper"){
-        playerVitories++;
-        texto.textContent = "You win, scissors CUT paper! :)";
-    }
-    else if (computerSelection == "rock" && playerSelection == "scissors"){
-        computerVitories++;
-        texto.textContent = "You lose, rock BEATS scissors! :(";
-    }
-    else if (computerSelection == "paper" && playerSelection == "rock"){
-        computerVitories++;
-        texto.textContent = "You lose, paper WRAPS rock! :(";
-    }
-    else if (computerSelection == "scissors" && playerSelection == "paper"){
-        computerVitories++;
-        texto.textContent = "You lose, scissors CUT paper! :(";
+    else if(playerVitories >= 5){
+        texto.textContent = "Player Wins!";
     }
     else{
-        texto.textContent = "Something went wrong";
+        const playerSelection = x.value;
+        const computerSelection = getComputerChoice();
+        console.log(`computer chose : ${computerSelection}`)
+        if (playerSelection == computerSelection){
+            texto.textContent = "It's a draw";
+        }
+        else if(playerSelection == "rock" && computerSelection == "scissors"){
+            playerVitories++;
+            texto.textContent = "You win, rock BEATS scissors! :)";
+        }
+        else if(playerSelection == "paper" && computerSelection == "rock"){
+            playerVitories++;
+            texto.textContent = "You win, paper WRAPS rock! :)";
+        }
+        else if(playerSelection == "scissors" && computerSelection == "paper"){
+            playerVitories++;
+            texto.textContent = "You win, scissors CUT paper! :)";
+        }
+        else if (computerSelection == "rock" && playerSelection == "scissors"){
+            computerVitories++;
+            texto.textContent = "You lose, rock BEATS scissors! :(";
+        }
+        else if (computerSelection == "paper" && playerSelection == "rock"){
+            computerVitories++;
+            texto.textContent = "You lose, paper WRAPS rock! :(";
+        }
+        else if (computerSelection == "scissors" && playerSelection == "paper"){
+            computerVitories++;
+            texto.textContent = "You lose, scissors CUT paper! :(";
+        }
+        else{
+            texto.textContent = "Something went wrong";
+        }
+        playerScore.textContent = 'Player: ' + playerVitories;
+        computerScore.textContent = 'Computer: ' + computerVitories;
     }
-    playerScore.textContent = 'Player: ' + playerVitories;
-    computerScore.textContent = 'Computer: ' + computerVitories;
 }
 botaoRock.addEventListener("click", ()=>{
     playRound(botaoRock);
